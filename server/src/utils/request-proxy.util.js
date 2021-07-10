@@ -2,6 +2,7 @@ const { logger } = require("../../../commons/utils/logger");
 const { MESSAGES } = require("../constants/constants");
 const { response } = require("./response");
 const { REQUESTS } = require("../../../commons/proto/services");
+const transactionProcessor = require("../tasks/transaction-processor.task");
 
 const requestProxy = (type, handler, datastore, payload) => {
   console.log(datastore);
@@ -28,19 +29,13 @@ const requestProxy = (type, handler, datastore, payload) => {
       });
       break;
     case REQUESTS.CREATE_BUY_ORDER:
-      datastore.publishOrder(payload);
+    case REQUESTS.CREATE_SELL_ORDER:
+      transactionProcessor(datastore, payload);
       handler.reply(null, {
         ...response(200, MESSAGES.SUCCESS),
         data: datastore.getOrders(),
       });
       break;
-      case REQUESTS.CREATE_SELL_ORDER:
-        datastore.publishOrder(payload)
-        handler.reply(null, {
-          ...response(200, MESSAGES.SUCCESS),
-          data: datastore.getOrders(),
-        });
-        break;  
     default:
       logger(400, MESSAGES.INVALID_REQUEST);
   }

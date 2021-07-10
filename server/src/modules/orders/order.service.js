@@ -1,45 +1,47 @@
-const OrderType = require('./type.model');
+const OrderType = require("./type.model");
 
 module.exports = () => {
-    
-    let orders = new Array();
-    
-    removeOrder = (id) => {
-        orders.filter(order => (order.id !== id));
-    }
-    
-    getOrders = () => {
-        return orders;
-    }
-    
-    getOrderById = (id) => {
-        return orders.find(order => (order.id === id)) || {};
-    }
-    
-    getOrdersByType = (type) => {
-        return orders.find(order => (order.type === OrderType.types[1])) || [];
-    }
+  let orders = new Array();
 
-    publishOrder = (order) => {
-        orders.push(order);
-        return order;
-    }
+  removeOrder = (id) => {
+    orders.filter((order) => order.id !== id);
+  };
 
-    sellOrder = (order) => {
+  getOrders = () => {
+    return orders;
+  };
 
-    }
+  getOrderById = (id) => {
+    return orders.find((order) => order.id === id) || {};
+  };
 
-    buyOrder = (order) => {
+  getOrdersByType = (type) => {
+    return orders.find((order) => order.type === OrderType.types[1]) || [];
+  };
 
-    }
-        
-    return {
-        publishOrder,
-        getOrders,
-        removeOrder,
-        getOrderById,
-        getOrdersByType,
-        sellOrder,
-        buyOrder
-    }
-}
+  publishOrder = (order) => {
+    orders.push(order);
+    return order;
+  };
+
+  /**
+   * Sync orderbook with the server
+   * @date 2021-07-10
+   * @param {[Order]} orderBook
+   * @returns {void}
+   */
+  syncOrder = (orderBook) => {
+    orders = orderBook;
+  };
+
+  return {
+    syncOrder,
+    publishOrder,
+    getOrders,
+    removeOrder,
+    getOrderById,
+    getOrdersByType,
+    sellOrder,
+    buyOrder,
+  };
+};
