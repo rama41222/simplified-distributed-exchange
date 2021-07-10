@@ -19,7 +19,7 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
       oppositeType = 1
     }
     
-    logger(200, 'Initializing a buy Order');
+    logger(200, `Initializing a buy Order ${oppositeType}`);
     // decide order amount;
     const valuation = amount * exchangeRate;
     // get the current balance
@@ -61,7 +61,9 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
         /** Check our orderbook if the transaction is updated */
         logger(200, OrderService.getOrders())
         logger(201, [...WalletService.getWallet().entries()])
-        resolve(true);
+        setTimeout(function(){
+          resolve(true);
+        },3000)
         /** End of transaction */
       })
     }).catch(e => logger(500, e.message));

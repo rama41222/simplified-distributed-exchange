@@ -17,7 +17,7 @@ const clientName = "1";
  * @returns {void}
  */
 const seeder = () => {
-  WalletService.deposit(1, 100);
+  WalletService.deposit(1, 1000);
   WalletService.deposit(2, 1000000);
   logger(200, [...WalletService.getWallet().entries()]);
 };
@@ -58,23 +58,14 @@ peer.request(REQUESTS.GET_ORDERS, { timeout: 10000 }, async (err, data) => {
    * currencyType, exchangeRate, amount, peer, WalletService, OrderService, id
    * */
   const buyOrders = await Promise.all[
-    (createBuyOrder(1, 221, 1, peer, WalletService, OrderService, clientName),
-    createBuyOrder(1, 220, 2, peer, WalletService, OrderService, clientName),
-    createBuyOrder(2, 1, 120, peer, WalletService, OrderService, clientName),
-    createBuyOrder(2, 1, 300, peer, WalletService, OrderService, clientName),
-    createBuyOrder(2, 0.9, 223, peer, WalletService, OrderService, clientName),
-    createBuyOrder(2, 1.1, 120, peer, WalletService, OrderService, clientName))
+    createBuyOrder(2, 1.1, 120, peer, WalletService, OrderService, clientName)
   ];
 
   /** Create Sell Order */
   const sellOrders = await Promise.all[
-    (createSellOrder(2, 1, 1000, peer, WalletService, OrderService, clientName),
-    createSellOrder(2, 1, 20000, peer, WalletService, OrderService, clientName),
-    createSellOrder(1, 1, 120, peer, WalletService, OrderService, clientName),
-    createSellOrder(1, 1, 300, peer, WalletService, OrderService, clientName),
-    createSellOrder(1, 0.9, 223, peer, WalletService, OrderService, clientName),
-    createSellOrder(1, 1.1, 120, peer, WalletService, OrderService, clientName))
+    createSellOrder(2, 1, 100, peer, WalletService, OrderService, clientName)
   ];
+
 
   logger(20, [buyOrders]);
 

@@ -31,7 +31,7 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
      * If a seller is selling for this amount, the transaction will be carried out
      * So called a limit order
      */
-    const order = new Order(1, amount, exchangeRate, amount * exchangeRate, CLIENT_ID(id));
+    const order = new Order(2, amount, exchangeRate, amount * exchangeRate, CLIENT_ID(id));
   
     /** Request server to create an order */
     peer.request(REQUESTS.CREATE_SELL_ORDER, order, { timeout: 10000 }, (err, {code, message, data}) => {
