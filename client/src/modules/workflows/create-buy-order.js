@@ -40,7 +40,7 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
      * If a seller is selling for this amount, the transaction will be carried out
      * So called a limit order
      */
-    const order = new Order(1, amount, exchangeRate, valuation, CLIENT_ID(id));
+    const order = new Order(1, amount, exchangeRate, valuation, CLIENT_ID(id), currencyType);
     logger(-1, order)
 
     /** Request server to create an order */

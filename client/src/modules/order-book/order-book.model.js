@@ -7,7 +7,7 @@ const OrderType = require("./type.model");
  * @returns {Order}
  */
 class Order {
-  constructor(type, amount, price, total, clientId) {
+  constructor(type, amount, price, total, clientId, currency) {
    
     /** uuid for transaction */
     this.id = uuid();
@@ -26,6 +26,9 @@ class Order {
 
     /** Total cost of tansaction */
     this.total = total;
+
+    /** Currency Data*/
+    this.currency = currency;
   }
 }
 

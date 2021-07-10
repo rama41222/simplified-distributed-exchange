@@ -8,7 +8,7 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
  * @date 2021-07-10
  * @returns {void}
  */
- const createSellOrder = (currencyType, exchangeRate, amount, peer, WalletService, OrderService, id) => {
+ const createSellOrder = async (currencyType, exchangeRate, amount, peer, WalletService, OrderService, id) => {
 
     logger(200, 'Initializing a sell Order');  
   
@@ -31,25 +31,31 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
      * If a seller is selling for this amount, the transaction will be carried out
      * So called a limit order
      */
-    const order = new Order(2, amount, exchangeRate, amount * exchangeRate, CLIENT_ID(id));
+    const order = new Order(2, amount, exchangeRate, amount * exchangeRate, CLIENT_ID(id), currencyType);
   
     /** Request server to create an order */
-    peer.request(REQUESTS.CREATE_SELL_ORDER, order, { timeout: 10000 }, (err, {code, message, data}) => {
-      if (err) {
-        logger(500, err);
-        process.exit(-1)
-      }
-      /** 
-       * If the transaction went through,
-       * Sync the local book,
-       * Sync the wallet  with asking amount
-       * */
-      logger(code, message);
-      OrderService.syncOrder(data);
-      /** Check our orderbook if the transaction is updated */
-      logger(200, OrderService.getOrders())
-      logger(201, WalletService.getWallet())
-      /** End of transaction */
+    return new Promise((resolve, reject) => {
+      peer.request(REQUESTS.CREATE_SELL_ORDER, order, { timeout: 10000 }, (err, {code, message, data}) => {
+        if (err) {
+          logger(500, err);
+          reject(-1);
+          process.exit(-1);
+        }
+        /** 
+         * If the transaction went through,
+         * Sync the local book,
+         * Sync the wallet  with asking amount
+         * */
+        logger(code, message);
+        OrderService.syncOrder(data);
+        /** Check our orderbook if the transaction is updated */
+        logger(200, OrderService.getOrders())
+        logger(201, WalletService.getWallet())
+        setTimeout(() => {
+          resolve(true)
+        },3000)
+        /** End of transaction */
+      })
     })
   }
 
