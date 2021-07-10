@@ -1,3 +1,8 @@
+/**
+ * Constants
+ * Messages: For loggers and responses
+ * Client id: Differentiate 2 clients
+ */
 module.exports = {
     MESSAGES: {
       SUCCESS: 'Successfully completed the request',

@@ -1,7 +1,6 @@
 
-module.exports = () => {
+module.exports = (dataStore) => {
     
-    let exchangeRate = 0;
     
     removeOrder = (id) => {
         orders.filter(order => (order.id !== id));
