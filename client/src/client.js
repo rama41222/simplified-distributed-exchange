@@ -69,11 +69,11 @@ peer.request(REQUESTS.GET_ORDERS, { timeout: 10000 }, async (err, data) => {
   /** Create Sell Order */
   const sellOrders = await Promise.all[
     (createSellOrder(2, 1, 1000, peer, WalletService, OrderService, clientName),
-    createBuyOrder(2, 1, 20000, peer, WalletService, OrderService, clientName),
-    createBuyOrder(1, 1, 120, peer, WalletService, OrderService, clientName),
-    createBuyOrder(1, 1, 300, peer, WalletService, OrderService, clientName),
-    createBuyOrder(1, 0.9, 223, peer, WalletService, OrderService, clientName),
-    createBuyOrder(1, 1.1, 120, peer, WalletService, OrderService, clientName))
+    createSellOrder(2, 1, 20000, peer, WalletService, OrderService, clientName),
+    createSellOrder(1, 1, 120, peer, WalletService, OrderService, clientName),
+    createSellOrder(1, 1, 300, peer, WalletService, OrderService, clientName),
+    createSellOrder(1, 0.9, 223, peer, WalletService, OrderService, clientName),
+    createSellOrder(1, 1.1, 120, peer, WalletService, OrderService, clientName))
   ];
 
   logger(20, [buyOrders]);
