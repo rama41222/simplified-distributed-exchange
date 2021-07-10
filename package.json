@@ -1,0 +1,32 @@
+{
+  "name": "simplified-distributed-exchange",
+  "version": "1.0.0",
+  "description": "A simplified distributed crypto exchage",
+  "main": "index.js",
+  "scripts": {
+    "start:srv": "nodemon server.js",
+    "start:cli": "nodemon client.js",
+    "s1": "./node_modules/.bin/grape --dp 20001 --aph 30001 --bn '127.0.0.1:20002'",
+    "s2": "./node_modules/.bin/grape --dp 20002 --aph 40001 --bn '127.0.0.1:20001'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rama41222/simplified-distributed-exchange.git"
+  },
+  "author": "rama41222",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rama41222/simplified-distributed-exchange/issues"
+  },
+  "homepage": "https://github.com/rama41222/simplified-distributed-exchange#readme",
+  "dependencies": {
+    "cbq": "^0.0.1",
+    "grenache-grape": "^0.9.10",
+    "grenache-nodejs-http": "^0.7.12",
+    "grenache-nodejs-link": "^0.7.12",
+    "nodemon": "^2.0.11",
+    "uuid": "^3.4.0",
+    "uws": "^200.0.0"
+  }
+}
