@@ -33,7 +33,6 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
     
     /** Withdraw from Opposite Balance */
     const newBalance = WalletService.withdraw(oppositeType, valuation);
-    console.log('neewe', newBalance)
     logger(200,  newBalance);
   
     /** 
@@ -62,7 +61,6 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
         /** Check our orderbook if the transaction is updated */
         logger(200, OrderService.getOrders())
         logger(201, [...WalletService.getWallet().entries()])
-        console.log('-------------------\n\n','lalala');
         resolve(true);
         /** End of transaction */
       })

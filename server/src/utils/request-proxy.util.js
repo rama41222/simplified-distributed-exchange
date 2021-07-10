@@ -5,7 +5,6 @@ const { REQUESTS } = require("../../../commons/proto/services");
 const transactionProcessor = require("../tasks/transaction-processor.task");
 
 const requestProxy = (type, handler, datastore, payload) => {
-  console.log(datastore);
   switch (type) {
     case REQUESTS.HANDSHAKE:
       handler.reply(null, { ...response(200, MESSAGES.SUCCESS), data: [] });

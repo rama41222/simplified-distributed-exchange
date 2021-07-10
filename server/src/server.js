@@ -26,7 +26,6 @@ const service = peer.transport('server')
 service.listen(port)
 
 setInterval(function () {
-  logger(21, OrderService.getOrders().length);
   Object.keys(REQUESTS).forEach(key => {
     link.announce(REQUESTS[key], service.port, {})
   })

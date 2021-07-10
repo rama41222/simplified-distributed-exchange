@@ -7,6 +7,7 @@
  * @returns {void}
  */
 const transactionProcessor = (datastore, payload) => {
+    console.log('params:', datastore);
   /**
    * {
    *   id: 'bea471ad-f8f2-4ba0-8e13-02e25a89fac0',
@@ -49,6 +50,7 @@ const transactionProcessor = (datastore, payload) => {
       payload.total = 0;
       order.amount = newOrderAmount;
       order.total = newOrderAmount * order.price;
+      console.log('order:', order);
       return order;
     }
   });

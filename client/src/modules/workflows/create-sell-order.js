@@ -23,7 +23,6 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
     
     /** Withdraw */
     const newBalance = WalletService.withdraw(currencyType, amount);
-    console.log('neewe', newBalance)
     logger(200,  newBalance);
   
     /** 
