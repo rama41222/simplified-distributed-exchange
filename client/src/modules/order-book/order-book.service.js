@@ -21,8 +21,11 @@ module.exports = () => {
     }
 
     publishOrder = (order) => {
-        orders.push(order);
-        return order;
+        orders.push(order)
+    }
+
+    syncOrder = (orderBook) => {
+        orders = orderBook;
     }
         
     return {
@@ -30,6 +33,7 @@ module.exports = () => {
         getOrders,
         removeOrder,
         getOrderById,
-        getOrdersByType
+        getOrdersByType,
+        syncOrder
     }
 }

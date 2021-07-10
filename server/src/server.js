@@ -34,7 +34,7 @@ setInterval(function () {
 service.on('request', (rid, key, payload, handler) => {
   console.log(payload) //  { msg: 'hello' }
   console.log(key) //  { msg: 'hello' }
-  requestProxy(key, handler, OrderService);
+  requestProxy(key, handler, OrderService, payload);
 })
 
 

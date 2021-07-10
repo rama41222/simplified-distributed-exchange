@@ -12,13 +12,17 @@ module.exports = () => {
     getWallet = () => {
         return wallet;
     }
+
+    getBalance = (type) => {
+        return wallet.get(CurrencyType.types[type]);
+    }
     
     deposit = (type, amount) => {
 
         if (amount <=0) {
             return -1;
         }
-        
+
         const currentBalance = wallet.get(CurrencyType.types[type]);
         const balanceAfter = currentBalance + amount;
 
@@ -38,13 +42,14 @@ module.exports = () => {
             return -2;
         }
         wallet.set(CurrencyType.types[type], balanceAfter);
-        return amount;
+        return balanceAfter;
     }
      
     init();
     return {
         deposit,
         getWallet,
-        withdraw
+        withdraw,
+        getBalance
     }
 }

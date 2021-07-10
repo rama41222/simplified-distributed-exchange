@@ -1,8 +1,7 @@
-const OrderType = require('./type.model');
 
 module.exports = () => {
     
-    let orders = new Array();
+    let exchangeRate = 0;
     
     removeOrder = (id) => {
         orders.filter(order => (order.id !== id));
