@@ -1,4 +1,4 @@
-# simplified-distributed-exchange
+# QuickTrade!
 A simplified distributed crypto exchage
 
 ## Setup
