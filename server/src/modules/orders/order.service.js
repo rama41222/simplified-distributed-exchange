@@ -24,12 +24,22 @@ module.exports = () => {
         orders.push(order);
         return order;
     }
+
+    sellOrder = (order) => {
+
+    }
+
+    buyOrder = (order) => {
+
+    }
         
     return {
         publishOrder,
         getOrders,
         removeOrder,
         getOrderById,
-        getOrdersByType
+        getOrdersByType,
+        sellOrder,
+        buyOrder
     }
 }

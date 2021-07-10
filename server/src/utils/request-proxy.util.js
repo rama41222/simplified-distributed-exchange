@@ -10,21 +10,18 @@ const requestProxy = (type, handler, datastore, payload) => {
       handler.reply(null, { ...response(200, MESSAGES.SUCCESS), data: [] });
       break;
     case REQUESTS.GET_ORDERS:
-      console.log("gettig orders");
       handler.reply(null, {
         ...response(200, MESSAGES.SUCCESS),
         data: datastore.getOrders(),
       });
       break;
     case REQUESTS.GET_BUY_ORDERS:
-      console.log("gettig buying orders", datastore.getOrdersByType(1));
       handler.reply(null, {
         ...response(200, MESSAGES.SUCCESS),
         data: datastore.getOrdersByType(1),
       });
       break;
     case REQUESTS.GET_SELL_ORDERS:
-      console.log("gettig selling orders", datastore.getOrdersByType(2));
       handler.reply(null, {
         ...response(200, MESSAGES.SUCCESS),
         data: datastore.getOrdersByType(2),
@@ -37,6 +34,13 @@ const requestProxy = (type, handler, datastore, payload) => {
         data: datastore.getOrders(),
       });
       break;
+      case REQUESTS.CREATE_SELL_ORDER:
+        console.log("create buy order", datastore.publishOrder(payload));
+        handler.reply(null, {
+          ...response(200, MESSAGES.SUCCESS),
+          data: datastore.getOrders(),
+        });
+        break;  
     default:
       logger(400, MESSAGES.INVALID_REQUEST);
   }

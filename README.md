@@ -9,13 +9,13 @@ A simplified distributed crypto exchage
 
 [X] Handshake, Fetch orders, Fetch Selling Orders, Fetch Buying orders
 
-[] Order Creation
+[X] Documentation
+
+[X] Order Creation
 
 [] Order Execution from server (Via automation task );
 
 [] Broadcasting to all the clients (Syncing the books in the network)
-
-[] Move Endpoints to dot env
 
 ## Todo
 
@@ -24,3 +24,5 @@ A simplified distributed crypto exchage
 [] Documentation
 
 [] Rewire in Typescript
+
+[] Move Endpoints to dot env
