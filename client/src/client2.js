@@ -11,7 +11,7 @@ const { logger } = require("../../commons/utils/logger");
 const OrderService = require("./modules/order-book/order-book.service")();
 const WalletService = require("./modules/wallet/wallet.service")();
 const { createBuyOrder, createSellOrder } = require("./modules/workflows");
-const clientName = "1";
+const clientName = "2";
 /**
  * This fuction adds seed money into wallet
  * @returns {void}

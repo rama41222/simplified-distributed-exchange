@@ -7,7 +7,6 @@
  * @returns {void}
  */
 const transactionProcessor = (datastore, payload) => {
-    console.log('params:', datastore);
   /**
    * {
    *   id: 'bea471ad-f8f2-4ba0-8e13-02e25a89fac0',
@@ -29,12 +28,15 @@ const transactionProcessor = (datastore, payload) => {
    */
   const allBooks = datastore.getOrders();
   const updatedBooks = allBooks.map((order) => {
+    
     /** Skip own Transactions */
-    if (order.clientId === payload.clientId) {
+    if (order && payload && order.clientId === payload.clientId) {
+        
       return order;
     }
+
     /** Get the Selling to buy and buying to sell orders */
-    if (payload.type !== order.type) {
+    if (order && payload && payload.type !== order.type) {
       return order;
     }
 
@@ -42,17 +44,16 @@ const transactionProcessor = (datastore, payload) => {
      * Available Opposite Order amount should be greater than requested amount 
      * Requested price === Available opposite order price
      * */
-    if (order.amount >= payload.amount && payload.price === order.price) {
+    if (order && payload && (order.amount >= payload.amount) && (payload.price === order.price)) {
       const orderAmount = order.amount;
       const payloadAmount = payload.amount;
       const newOrderAmount = orderAmount - payloadAmount;
       payload.amount = 0;
-      payload.total = 0;
       order.amount = newOrderAmount;
       order.total = newOrderAmount * order.price;
-      console.log('order:', order);
       return order;
     }
+    return order;
   });
 
   /** Sync with server store */

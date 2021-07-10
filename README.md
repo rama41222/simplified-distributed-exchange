@@ -27,22 +27,22 @@ node ./client/src/client.js
 
 ```javascript
 const buyOrders = await Promise.all[
-    (createBuyOrder(1, 221, 1, peer, WalletService, OrderService, clientName),
+    createBuyOrder(1, 221, 1, peer, WalletService, OrderService, clientName),
     createBuyOrder(1, 220, 2, peer, WalletService, OrderService, clientName),
     createBuyOrder(2, 1, 120, peer, WalletService, OrderService, clientName),
     createBuyOrder(2, 1, 300, peer, WalletService, OrderService, clientName),
     createBuyOrder(2, 0.9, 223, peer, WalletService, OrderService, clientName),
-    createBuyOrder(2, 1.1, 120, peer, WalletService, OrderService, clientName))
+    createBuyOrder(2, 1.1, 120, peer, WalletService, OrderService, clientName)
   ];
 
   /** Create Sell Order */
   const sellOrders = await Promise.all[
-    (createSellOrder(2, 1, 1000, peer, WalletService, OrderService, clientName),
+    createSellOrder(2, 1, 1000, peer, WalletService, OrderService, clientName),
     createSellOrder(2, 1, 20000, peer, WalletService, OrderService, clientName),
     createSellOrder(1, 220, 120, peer, WalletService, OrderService, clientName),
     createSellOrder(1, 112, 300, peer, WalletService, OrderService, clientName),
     createSellOrder(1, 900, 223, peer, WalletService, OrderService, clientName),
-    createSellOrder(1, 221, 120, peer, WalletService, OrderService, clientName))
+    createSellOrder(1, 221, 120, peer, WalletService, OrderService, clientName)
   ];
 ```
 
@@ -62,6 +62,8 @@ const buyOrders = await Promise.all[
 
 [X] Broadcasting to all the clients (Syncing the books in the network)
 
+[X] Documentation
+
 ## Todo
 
 [ ] Handle race conditions by possibly using a QUEUE datastructure
@@ -69,8 +71,6 @@ const buyOrders = await Promise.all[
 [ ] Handle wallet update after transaction from client side
 
 [ ] Unit tests (No TDD)
-
-[X] Documentation
 
 [ ] Rewire in Typescript
 
