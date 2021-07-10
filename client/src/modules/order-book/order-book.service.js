@@ -1,4 +1,3 @@
-const { types } = require('../orders/type.model');
 const OrderType = require('./type.model');
 
 module.exports = () => {
