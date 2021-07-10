@@ -42,7 +42,7 @@ module.exports = () => {
      * @returns {[Order]}
      */
     getOrdersByType = (type) => {
-        return orders.find(order => (order.type === OrderType.types[types])) || [];
+        return orders.find(order => (order.type === OrderType.types[type])) || [];
     }
 
     /**
