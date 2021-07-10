@@ -4,6 +4,9 @@ A simplified distributed crypto exchage
 ## Setup
 ```bash
 
+# Clone the repo
+git clone git@github.com:rama41222/simplified-distributed-exchange.git
+
 # Install required packages
 npm i
 
@@ -18,8 +21,9 @@ node ./server/src/server.js
 node ./client/src/client.js 
 ```
 
-**Create as much clients as you like and try to execute transactions
-**Also utiloze the workflows to execute transactions
+**Create as much clients as you like and try to execute transactions**
+
+**Also utiloze the workflows to execute transactions**
 
 ```javascript
 const buyOrders = await Promise.all[
@@ -34,11 +38,11 @@ const buyOrders = await Promise.all[
   /** Create Sell Order */
   const sellOrders = await Promise.all[
     (createSellOrder(2, 1, 1000, peer, WalletService, OrderService, clientName),
-    createBuyOrder(2, 1, 20000, peer, WalletService, OrderService, clientName),
-    createBuyOrder(1, 1, 120, peer, WalletService, OrderService, clientName),
-    createBuyOrder(1, 1, 300, peer, WalletService, OrderService, clientName),
-    createBuyOrder(1, 0.9, 223, peer, WalletService, OrderService, clientName),
-    createBuyOrder(1, 1.1, 120, peer, WalletService, OrderService, clientName))
+    createSellOrder(2, 1, 20000, peer, WalletService, OrderService, clientName),
+    createSellOrder(1, 220, 120, peer, WalletService, OrderService, clientName),
+    createSellOrder(1, 112, 300, peer, WalletService, OrderService, clientName),
+    createSellOrder(1, 900, 223, peer, WalletService, OrderService, clientName),
+    createSellOrder(1, 221, 120, peer, WalletService, OrderService, clientName))
   ];
 ```
 
