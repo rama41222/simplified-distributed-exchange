@@ -16,7 +16,7 @@ module.exports = () => {
   };
 
   getOrdersByType = (type) => {
-    return orders.find((order) => order.type === OrderType.types[1]) || [];
+    return orders.find((order) => order.type === OrderType.types[type]) || [];
   };
 
   publishOrder = (order) => {

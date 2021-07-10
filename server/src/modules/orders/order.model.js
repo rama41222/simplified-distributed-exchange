@@ -10,7 +10,7 @@ class Order {
     this.clientId = clientId;
 
     /** Order Type*/
-    this.type = OrderType.types[1];
+    this.type = OrderType.types[type];
 
     /** Amount of currency needed*/
     this.amount = amount;

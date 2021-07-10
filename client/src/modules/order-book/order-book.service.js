@@ -1,3 +1,4 @@
+const { types } = require('../orders/type.model');
 const OrderType = require('./type.model');
 
 module.exports = () => {
@@ -41,7 +42,7 @@ module.exports = () => {
      * @returns {[Order]}
      */
     getOrdersByType = (type) => {
-        return orders.find(order => (order.type === OrderType.types[1])) || [];
+        return orders.find(order => (order.type === OrderType.types[types])) || [];
     }
 
     /**
