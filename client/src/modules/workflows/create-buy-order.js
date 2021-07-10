@@ -9,13 +9,13 @@ const { REQUESTS } = require('./../../../../commons/proto/services');
  * @returns {void}
  */
  const createBuyOrder = async (currencyType, exchangeRate, amount, peer, WalletService, OrderService, id) => {
-
+  console.log('currencyType:', currencyType)
   /** choose opposite currency when creating a buy order */
-    let oppositeType = -1 ;
+    var oppositeType = -1 ;
 
     if (currencyType === 1) {
       oppositeType = 2;
-    } else if (currencyType === 1) {
+    } else if (currencyType === 2) {
       oppositeType = 1
     }
     
