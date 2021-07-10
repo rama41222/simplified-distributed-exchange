@@ -25,7 +25,6 @@ service.listen(port)
 
 setInterval(function () {
   Object.keys(REQUESTS).forEach(key => {
-    console.log('key', key, REQUESTS[key]);
     link.announce(REQUESTS[key], service.port, {})
   })
 }, 1000)
