@@ -6,8 +6,8 @@
 
 const { PeerRPCClient }  = require('grenache-nodejs-http')
 const Link = require('grenache-nodejs-link')
-const { REQUESTS } = require('../../proto/services');
-const { logger } = require('../../server/src/utils/logger');
+const { REQUESTS } = require('../../commons/proto/services');
+const { logger } = require('../../commons/utils/logger');
 const OrderService = require('./modules/orders/order.service')();
 const WalletService = require('./modules/wallet/wallet.service')();
 const CurrencyType = require('./modules/wallet/currency-type.model');
@@ -54,4 +54,11 @@ peer.request(REQUESTS.GET_SELL_ORDERS, { msg: 'hello server2' }, { timeout: 1000
   logger(200, data);
 })
 
+peer.request(REQUESTS.CREATE_BUY_ORDER, { msg: 'init' }, { timeout: 10000 }, (err, data) => {
+  if (err) {
+    logger(500, err);
+    process.exit(-1)
+  }
+  logger(200, data);
+})
 

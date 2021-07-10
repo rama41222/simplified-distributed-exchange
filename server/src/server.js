@@ -8,7 +8,7 @@ const { PeerRPCServer }  = require('grenache-nodejs-http')
 const Link = require('grenache-nodejs-link')
 const OrderService = require('./modules/orders/order.service.js')();
 const requestProxy = require('./utils/request-proxy.util');
-const { REQUESTS } = require('./../../proto/services');
+const { REQUESTS } = require('../../commons/proto/services');
 
 
 const link = new Link({

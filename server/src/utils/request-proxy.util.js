@@ -1,7 +1,7 @@
-const { logger } = require('./logger');
+const { logger } = require('../../../commons/utils/logger');
 const { MESSAGES } = require('../constants/constants');
 const { response } = require('./response');
-const { REQUESTS } = require('./../../../proto/services');
+const { REQUESTS } = require('../../../commons/proto/services');
 
 const requestProxy = (type, handler, datastore) => {
    console.log(datastore)
