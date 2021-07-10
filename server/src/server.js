@@ -9,6 +9,8 @@ const Link = require('grenache-nodejs-link')
 const OrderService = require('./modules/orders/order.service.js')();
 const requestProxy = require('./utils/request-proxy.util');
 const { REQUESTS } = require('./../../proto/services');
+
+
 const link = new Link({
   grape: 'http://127.0.0.1:30001'
 })

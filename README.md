@@ -15,6 +15,8 @@ A simplified distributed crypto exchage
 
 [] Broadcasting to all the clients (Syncing the books in the network)
 
+[] Move Endpoints to dot env
+
 ## Todo
 
 [] Unit tests (No TDD)
