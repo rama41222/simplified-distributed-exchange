@@ -9,7 +9,7 @@ const Link = require('grenache-nodejs-link')
 const OrderService = require('./modules/orders/order.service.js')();
 const requestProxy = require('./utils/request-proxy.util');
 const { REQUESTS } = require('../../commons/proto/services');
-
+const { logger } = require('./../../commons/utils/logger');
 
 const link = new Link({
   grape: 'http://127.0.0.1:30001'
@@ -26,6 +26,7 @@ const service = peer.transport('server')
 service.listen(port)
 
 setInterval(function () {
+  logger(21, OrderService.getOrders().length);
   Object.keys(REQUESTS).forEach(key => {
     link.announce(REQUESTS[key], service.port, {})
   })

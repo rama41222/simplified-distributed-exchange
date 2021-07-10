@@ -28,14 +28,14 @@ const requestProxy = (type, handler, datastore, payload) => {
       });
       break;
     case REQUESTS.CREATE_BUY_ORDER:
-      console.log("create buy order", datastore.publishOrder(payload));
+      datastore.publishOrder(payload);
       handler.reply(null, {
         ...response(200, MESSAGES.SUCCESS),
         data: datastore.getOrders(),
       });
       break;
       case REQUESTS.CREATE_SELL_ORDER:
-        console.log("create buy order", datastore.publishOrder(payload));
+        datastore.publishOrder(payload)
         handler.reply(null, {
           ...response(200, MESSAGES.SUCCESS),
           data: datastore.getOrders(),
