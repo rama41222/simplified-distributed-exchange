@@ -33,7 +33,6 @@ setInterval(function () {
 
 service.on('request', (rid, key, payload, handler) => {
   console.log(rid);
-  console.log(payload);
   console.log(key);
   requestProxy(key, handler, OrderService, payload);
 })
